@@ -1,0 +1,8 @@
+.wrapper-month{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  &__item{
+    height: 110px;
+    border: 1px solid lightgrey;
+  }
+}

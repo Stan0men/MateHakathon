@@ -1,2 +1,4 @@
-<app-header-calendar></app-header-calendar>
-<app-month></app-month>
+
+<app-header-calendar (nextMonth)= "nextMonth()" (prevMonth)="prevMonth()"></app-header-calendar>
+<app-month [month]="month" [year]="year"></app-month>
+
