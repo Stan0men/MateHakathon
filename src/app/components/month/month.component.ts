@@ -58,6 +58,9 @@ export class MonthComponent implements OnInit, OnChanges {
   }
 
   getEvents(date: Date) {
-    console.log();
+    const key = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
+    if (this.events){
+      return this.events[key]
+    }
   }
 }

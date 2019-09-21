@@ -2,9 +2,13 @@
   <div class="wrapper-month__item" *ngFor="let item of calendarArr">
       {{item ? item.getDate() : ''}}
 
+    <div *ngIf="item">
       <div *ngFor="let event of getEvents(item)">
-
+        {{event.title}}
+        <input type="text">
       </div>
+    </div>
+
   </div>
 </div>
 
