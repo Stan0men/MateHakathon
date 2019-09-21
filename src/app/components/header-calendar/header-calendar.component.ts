@@ -8,24 +8,28 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 export class HeaderCalendarComponent implements OnInit {
   @Output() nextMonth = new EventEmitter();
   @Output() prevMonth = new EventEmitter();
-  @Input() m;
+  @Output() curentMonth = new EventEmitter();
+  @Input() month;
 
   monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'
   ];
 
-  d = new Date();
-month = new Date().getMonth();
 
-  _nextMonth(){
+  _nextMonth() {
     this.nextMonth.emit();
   }
-  _prevMonth(){
-   this.prevMonth.emit();
+
+  _prevMonth() {
+    this.prevMonth.emit();
+  }
+  _currentMonth() {
+    this.curentMonth.emit();
   }
 
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

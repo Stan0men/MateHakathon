@@ -1,11 +1,11 @@
 <div class="row">
   <div class="col-xl-3">
     <button type="button" class="btn btn-primary" (click)="_prevMonth()">Previous</button>
-    <button type="button" class="btn btn-light">Today</button>
+    <button type="button" class="btn btn-light" (click)="_currentMonth()">Today</button>
     <button type="button" class="btn btn-primary" (click)="_nextMonth()">Next</button>
   </div>
 <div class="col-xl-6" style="text-align:center ">
-  <h2>{{monthNames[d.getMonth()]}}</h2>
+  <h2>{{monthNames[month]}}</h2>
 </div>
   <div class="col-xl-3">
     <button type="button" class="btn btn-primary">Month</button>

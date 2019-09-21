@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from "rxjs";
+
 
 @Component({
   selector: 'app-root',
@@ -16,6 +19,11 @@ export class AppComponent implements OnInit{
   prevMonth() {
      this.month--
   }
+  currentMonth(){
+    this.month = (new Date()).getMonth();
+  }
+
+
   ngOnInit() {
 
   }
@@ -23,3 +31,9 @@ export class AppComponent implements OnInit{
 
 
 
+export class Service {
+  constructor(private http: HttpClient){}
+  getEvents(): Observable<any> {
+    return this.http.get('http://192.168.66.219:3000/events');
+  }
+}

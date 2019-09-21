@@ -1,6 +1,10 @@
 <div class="wrapper-month">
   <div class="wrapper-month__item" *ngFor="let item of calendarArr">
-      {{item}}
+      {{item ? item.getDate() : ''}}
+
+      <div *ngFor="let event of getEvents(item)">
+
+      </div>
   </div>
 </div>
 

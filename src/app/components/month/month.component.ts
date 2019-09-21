@@ -1,14 +1,16 @@
 import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {Service} from '../../app.component';
 
 @Component({
   selector: 'app-month',
   templateUrl: './month.component.html',
   styleUrls: ['./month.component.scss']
 })
-export class MonthComponent implements  OnChanges {
+export class MonthComponent implements OnInit, OnChanges {
   @Input() month;
   @Input() year;
   calendarArr = [];
+  events: [];
 
 
   getCalendar = (month, year) => {
@@ -27,7 +29,7 @@ export class MonthComponent implements  OnChanges {
     }
 
     while (d.getMonth() === month) {
-      result.push(d.getDate());
+      result.push(new Date(d));
 
       d.setDate(d.getDate() + 1);
     }
@@ -41,9 +43,21 @@ export class MonthComponent implements  OnChanges {
     return result;
   };
 
-
+  constructor(private service: Service) {
+  }
 
   ngOnChanges() {
     this.calendarArr = this.getCalendar(this.month, this.year);
+  }
+
+  ngOnInit() {
+    this.service.getEvents()
+      .subscribe(data => {
+        this.events = data;
+      })
+  }
+
+  getEvents(date: Date) {
+    console.log();
   }
 }
