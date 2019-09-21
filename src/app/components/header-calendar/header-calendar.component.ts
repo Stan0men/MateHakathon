@@ -1,4 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-header-calendar',
@@ -35,3 +37,4 @@ export class HeaderCalendarComponent implements OnInit {
   }
 
 }
+
